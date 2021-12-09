@@ -25,59 +25,7 @@ object leetcode extends App {
     }
     loop(n)
   }
-  // https://leetcode.com/problems/same-tree/description/
-  case class TreeNode(_value: Int = 0, _left: TreeNode, _right: TreeNode) {
-    var value: Int = _value
-    var left: TreeNode = _left
-    var right: TreeNode = _right
-    def toList: List[Int] = {
-      List(_value) ++ _left.toList ++ _right.toList
-    }
-  }
-  def isSameTree(p: TreeNode, q: TreeNode): Boolean = {
-    if (p == null && q == null) true
-    else if (p == null || q == null) false
-    else
-      p._value == q._value && isSameTree(p._left, q._left) && isSameTree(
-        p._right,
-        q._right
-      )
-  }
-  //https://leetcode.com/problems/symmetric-tree/description/
-  def isSymmetric(root: TreeNode): Boolean = {
 
-    def isMirrored(left: TreeNode, right: TreeNode): Boolean = {
-      if (left == null && right == null) true
-      else if (left == null || right == null) false
-      else
-        left.value == right.value && isMirrored(left.right, right.left) && isMirrored(
-          left.left,
-          right.right
-        )
-    }
-    if (root == null) true
-    else isMirrored(root._left, root._right)
-  }
-// https://leetcode.com/problems/find-permutation/description/
-  def findPermutation(s: String): Array[Int] = {}
-
-  // convert to tail recursion
-  def poorSum(n: Int): Int =
-    if (n == 0) 0
-    else n + poorSum(n - 1)
-
-  def betterSum(n: Int): Int = {
-    @tailrec
-    def loop(i: Int, acc: Int): Int = {
-      if (i == 0) acc
-      else loop(i - 1, acc + i)
-    }
-    loop(n, 0)
-  }
-  // https://leetcode.com/problems/bulb-switcher/description/
-  // this involves discovering the algorithm underlying by detecting the series pattern
-
-  def bulbSwitch(n: Int): Int = {}
 // https://leetcode.com/problems/valid-parentheses/description/
   val markers = Map('(' -> ')', '[' -> ']', '{' -> '}')
   def isValid(s: String): Boolean = {
