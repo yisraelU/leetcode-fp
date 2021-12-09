@@ -1,6 +1,8 @@
 import scala.annotation.tailrec
 
 // list of problems geared towards Scala curated from https://kkspeed.github.io/leetcode-scala/
+// goal is to solve ,using fp solutions. 
+// problems designed in non FP terms , such as nullable etc.. will be converted 
 object leetcode extends App {
   // https://leetcode.com/problems/sqrtx/description/
   def mySqrt(x: Int): Int = {
