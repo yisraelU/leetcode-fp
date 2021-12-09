@@ -102,8 +102,19 @@ object leetcode extends App {
 
     }
   }
-  // convert to list
-  // zipWithIndex
-  // add zero to beginning and end
+def addTwoNumbers(l1: List[Int], l2: List[Int]): List[Int] = {
+    def convertToNumber(list: List[Int]): Int = {
+      list
+        .foldRight[(Int, Int)]((0, 1)) {
+          case (elem, (acc, multiplier)) =>
+            (acc + (elem * multiplier), multiplier * 10)
+        }
+        ._1
+    }
+    val res = convertToNumber(l1) + convertToNumber(l2)
+    List.unfold(res)(i => if (i > 0) Some(i % 10, i / 10) else None)
+
+  }
+
 
 }
